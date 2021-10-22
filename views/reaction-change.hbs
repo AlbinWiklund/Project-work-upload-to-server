@@ -1,0 +1,15 @@
+{{#if session.isLoggedIn}}
+    <h2>Choose a reaction</h2>
+    {{#each images}}
+        <form action="/projects/feedback/reaction/update" method="POST">
+            <input type="hidden" name="_csrf" value={{../csurfToken}}>
+            <input type="hidden" name="feedbackID" value="{{../feedback.id}}">
+            <div class="form-group">
+                <input type="hidden" name="imgID" value="{{id}}">
+                <input type="image" src="{{url}}" alt="icon" width="100px" height="100px">
+            </div>
+        </form>
+    {{/each}}
+{{else}}
+    <h1>You are not logged in!</h1>
+{{/if}}

@@ -1,0 +1,68 @@
+.header{
+    display: flex;
+    text-align: center;
+    font-size: 2.6em;
+    background-color: blanchedalmond;
+    margin: 0;
+    border-bottom: 2px;
+    border-color: black;
+    border-bottom-style: inset;
+    padding: 8px;
+}
+
+.navi{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    position: fixed;
+}
+
+
+.navLayout {
+    position: fixed;
+    height: 100%;
+    width: 200px;
+}
+
+.textarea {
+    min-width: 100%;
+    min-height: 40px;
+}
+
+.cardclass {
+    box-shadow: 2px 2px 25px 1px lightgrey;
+}
+
+.noFontWeight {
+    font-weight: 400;
+}
+
+.fixPosition {
+    display: grid;
+    grid-template-columns:1fr min-content;
+}
+
+.fixPositionReactions {
+    display: grid;
+    grid-template-columns:min-content 1fr min-content;
+}
+
+.marginBottom {
+    margin-bottom: 8px;
+}
+
+@media only screen and (min-width: 960px) {
+    main {
+        margin-left: 210px;
+    }
+  }
+
+  @media only screen and (max-width: 960px) {
+    main {
+        margin-left: 50px;
+    }
+  }
+
+  body {
+      margin-right: 10px;
+  }

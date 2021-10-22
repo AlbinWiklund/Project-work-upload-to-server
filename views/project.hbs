@@ -1,0 +1,62 @@
+{{#if project}}
+    <div class="card mt-2 cardclass">
+        <div class="card-header fixPosition">
+            <div class="card-title h4">
+                {{project.title}}
+            </div>
+
+            <div>
+                {{#if session.isLoggedIn}}
+                    <a class="btn btn-primary m-1 text-light float-right noFontWeight" 
+                    href="/projects/{{project.id}}/delete">Delete</a>
+                    <a class="btn btn-primary m-1 text-light float-right noFontWeight" 
+                    href="/projects/{{project.id}}/update">Edit</a>
+                {{/if}}
+            </div>
+        </div>
+        <div class="card-body">
+            {{project.description}}
+        </div>
+    </div>
+
+    <h3 class="mt-2">Feedback</h3>
+    {{#each feedbackWithReactions}}
+        <div class="card mt-2 cardclass fixPositionReactions">
+            <a href="/projects/feedback/reaction/{{id}}/delete"><img class="m-2" src="{{url}}" alt="" width="30px" height="30px"></a>
+            <div class="card-body">
+                {{description}}
+            </div>
+
+            <div>
+                {{#if ../session.isLoggedIn}}
+                    <a class="btn btn-primary text-light float-right m-1" 
+                    href="/projects/feedback/reaction/{{id}}/update">Change reaction</a>
+                    <a class="btn btn-primary text-light float-right m-1" 
+                    href="/projects/feedback/{{id}}/delete">Delete</a>
+                    <a class="btn btn-primary text-light float-right m-1" 
+                    href="/projects/feedback/{{id}}/update">Edit</a>
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+    {{#each feedback}}
+        <div class="card mt-2 cardclass fixPosition">
+            <div class="card-body marginBottom">
+                {{description}}
+            </div>
+
+            <div>
+                {{#if ../session.isLoggedIn}}
+                    <a class="btn btn-primary text-light float-right m-1" 
+                    href="/projects/feedback/reaction/{{id}}">Add reaction</a>
+                    <a class="btn btn-primary text-light float-right m-1" 
+                    href="/projects/feedback/{{id}}/delete">Delete</a>
+                    <a class="btn btn-primary text-light float-right m-1" 
+                    href="/projects/feedback/{{id}}/update">Edit</a>
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+{{else}}
+    <p>Sorry brotha we found nothing.</p>
+{{/if}}

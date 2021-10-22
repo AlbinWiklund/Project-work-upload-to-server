@@ -1,0 +1,11 @@
+{{#if session.isLoggedIn}}
+    <form action="/projects/delete" method="post">
+        <input type="hidden" name="_csrf" value={{csurfToken}}>
+        <input type="hidden" name="projectID" value="{{projectID}}">
+        <h1>Do you really want to delete this project from the face of this earth, 
+            it will also delete all feedback related to this project?</h1>
+        <button class="btn input-group-btn btn-error mt-2">Delete!</button>
+    </form>
+{{else}}
+   <h1>You are not logged in!</h1>
+{{/if}}

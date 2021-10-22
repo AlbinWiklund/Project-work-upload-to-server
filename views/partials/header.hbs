@@ -1,0 +1,17 @@
+<header class="navbar mx-2"> 
+    <section class="navbar-section">
+        <h1 class="pt-2">{{name}}</h1> 
+    </section>
+    {{#if session.isLoggedIn}}
+        <form action="/logout" method="POST">
+            <input type="hidden" name="_csrf" value={{csurfToken}}>
+            <section class="navbar-section">
+                <button type="submit" class="btn input-group-btn btn-primary mt-2 float-right">Logout</button>
+            </section>
+        </form>
+    {{else}}
+        <section class="navbar-section">
+            <a class="btn btn-primary text-light" href="/login">Login</a>
+        </section>
+    {{/if}}
+</header>

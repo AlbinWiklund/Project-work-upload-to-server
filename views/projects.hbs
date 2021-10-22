@@ -1,0 +1,29 @@
+{{#if session.isLoggedIn}}
+    <a class="btn btn-primary text-light" href="/projects/new">Make a new project</a>
+{{/if}}
+
+{{#if hasDatabaseError}}
+	<p>Couldn't fetch the projects at the moment, try again later.</p>
+{{else}}	
+	{{#if projects.length}}
+		{{#each projects}}
+            <div class="card mt-2 cardclass">
+                <div class="card-header fixPosition">
+                    <div class="card-title h4">
+                        <a class="text-dark text-large text-bold" href="/projects/{{id}}">{{title}}</a>
+                    </div>
+                    <div>
+                        {{#if ../session.isLoggedIn}}
+                        <a class="btn btn-primary mx-2 text-light float-right noFontWeight m-1" 
+                        href="projects/{{id}}/delete">Delete</a>
+                        <a class="btn btn-primary mx-2 text-light float-right noFontWeight m-1" 
+                        href="projects/{{id}}/update">Edit</a>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+		{{/each}}
+	{{else}}
+		<p>This guy hasn't made his projects yet!</p>
+	{{/if}}
+{{/if}}
