@@ -83,7 +83,6 @@ router.get('/:id', function (req, res) {
 })
 
 router.post('/update', function (req, res) {
-
 	const feedbackID = req.body.feedbackID
 	const imgID = req.body.imgID
 
