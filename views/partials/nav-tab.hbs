@@ -12,12 +12,11 @@
                     <li class="nav-item">
                         <a class="text-dark text-large text-bold" href="/projects">Projects</a>
                     </li>
-                    {{#if session.isLoggedIn}}
-                    {{else}}
+                    {{#unless session.isLoggedIn}}
                         <li class="nav-item">
                             <a class="text-dark text-large text-bold" href="/projects/feedback">Feedback</a>
                         </li>
-                    {{/if}}
+                    {{/unless}}
                     <li class="nav-item">
                         <a class="text-dark text-large text-bold" href="/contact">Contact</a>
                     </li>

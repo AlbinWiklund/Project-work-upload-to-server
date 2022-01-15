@@ -1,5 +1,5 @@
 {{#if validationErrors.length}}
-	<p>Couldn't login because:</p>
+	<span>Couldn't login because:</span>
 	<ul>
 		{{#each validationErrors}}
 			<li>{{this}}</li>
@@ -8,23 +8,24 @@
 {{/if}}
 
 <form action="/projects/feedback" method="POST">
-  <input type="hidden" name="_csrf" value={{csurfToken}}>
-  <div class="form-group">
-    <select class="form-select" name="projectSelect">
-        <option value="" name="id">Choose a project</option>
-        {{#if project.length}}
-          {{#each project}}
-            <option value="{{id}}" name="id">{{title}}</option>
-          {{/each}}
-        {{else}}
-          <p>This guy hasn't made his projects yet!</p>
-        {{/if}}
-    </select>
-  </div>
+	<input type="hidden" name="_csrf" value={{csurfToken}}>
+	<div class="form-group">
+		<select class="form-select" name="projectSelect">
+			<option value="" name="id">Choose a project</option>
+			{{#if project.length}}
+				{{#each project}}
+					<option value="{{id}}" name="id">{{title}}</option>
+				{{/each}}
+			{{else}}
+				<p>This guy hasn't made his projects yet!</p>
+			{{/if}}
+		</select>
+	</div>
 
-  <div class="form-group">
-    <label class="form-label text-bold">Feedback</label>
-    <textarea class="form-input textarea" placeholder="Type your feedback here" rows="3" name="description"></textarea>
-    <button class="btn input-group-btn btn-primary mt-2">Submit</button>
-  </div>
+	<div class="form-group">
+		<label class="form-label text-bold">Feedback</label>
+		<textarea class="form-input textarea" placeholder="Type your feedback here" rows="3"
+			name="description"></textarea>
+		<button class="btn input-group-btn btn-primary mt-2">Submit</button>
+	</div>
 </form>

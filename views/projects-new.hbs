@@ -21,7 +21,7 @@
                 <button class="btn input-group-btn btn-primary mt-2">Submit</button>
             </div>
         </form>
-        {{else}}
+    {{else}}
         <form action="/projects/new" method="POST">
             <input type="hidden" name="_csrf" value={{csurfToken}}>
             <div class="form-group">
